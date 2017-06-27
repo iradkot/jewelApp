@@ -5,6 +5,8 @@ $(".submit-button").on('click', function() {
 
     var email = $(".email").val();
 
+    var profilePic = $(".profilePic").val();
+
     var myNecklace1 = $(".necklace-input1").val();
     var myNecklace2 = $(".necklace-input2").val();
     var myNecklace3 = $(".necklace-input3").val();
@@ -17,6 +19,7 @@ $(".submit-button").on('click', function() {
         name: name,
         bio: bio,
         email: email,
+        profile_pic: profilePic,
         chains: [myNecklace1, myNecklace2, myNecklace3],
         settings: [mySetting1, mySetting2, mySetting3],
     }
