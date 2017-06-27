@@ -25,14 +25,13 @@ function imageSliderIndexLeft(arr, current) {
     }
 }
 var artists = [];//for getting the array of atrists
+var artists_arr = [];
 $.ajax({
     url: "/artists",
     method: "Get"
 }).done(function (data) {
-    artists = data[0];
-    var artists_arr = data;
-    $('.artist-info').append("<h3>" + artists.name + "</h3>");
-    $('.artist-info').append("<h5>" + artists.bio + "</h5>");
+    // artists = data[0];
+    artists_arr = data;
     /// now putting all artists
     var source = $('#artists-template').html();
     var template = Handlebars.compile(source);
@@ -62,6 +61,20 @@ $('.left2').click(function () {
 $('.right2').click(function () {
     currentImage2 = imageSliderIndexRight(artists.settings, currentImage2);
     $("#img2").attr('src', artists.settings[currentImage2]);
+});
+
+$(".artists-list").on('click', '.artist-choose', function () {
+    var id = $(this).data().id;
+    $('.artist-info').empty();
+    for (var i = 0; i < artists_arr.length; i++) {
+        if (artists_arr[i]._id === id) {
+            artists = artists_arr[i];
+            $('.artist-info').append("<h3>" + artists.name + "</h3>");
+            $('.artist-info').append("<h5>" + artists.bio + "</h5>");
+            break;
+        }
+    }
+    $('.main').show();
 });
 
 

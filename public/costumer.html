@@ -9,7 +9,7 @@
 </head>
 
 <body>
-     <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid nav1">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="index.html">Front Page</a></li>
@@ -25,10 +25,10 @@
     </div>
     <div class="container artists-list"></div>
     <script id="artists-template" type="text/x-handlebars-template">
-        <!--<image id="{{name}}" src="{{profile_pic}}">-->
-           <a> {{name}} </a>
+        <a class="artist-choose" data-id='{{_id}}'> {{name}} </a>
+        <image class="artist-choose" src="{{profile_pic}}">
     </script>
-    <div class="container">
+    <div class="container main">
         <div class="row">
             <div class="col-md-6 col-md-offset-3 image_slider">
                 <div class="artist-info"></div>
@@ -39,11 +39,10 @@
                 <div class="row">
                     <div class="col-md-1 left1">
                         <button type="button" class="btn btn-success">left button</button>
-
                     </div>
                     <div class="col-md-10 image_box">
                         <div class="bounding-box1">
-                            <img id="img1" src="https://upload.wikimedia.org/wikipedia/commons/9/94/Jewels_of_Iran_%28GIM%29_01_by_shakko.jpg" class="img-responsive" alt="Image">
+                            <img id="img1" src="" class="img-responsive" alt="Image">
                         </div>
                     </div>
                     <div class="col-md-1 right1">
@@ -60,8 +59,7 @@
                     </div>
                     <div class="col-md-10 image_box">
                         <div class="bounding-box2">
-
-                            <img id="img2" src="https://upload.wikimedia.org/wikipedia/commons/9/94/Jewels_of_Iran_%28GIM%29_01_by_shakko.jpg" class="img-responsive" alt="Image">
+                            <img id="img2" src="" class="img-responsive" alt="Image">
                         </div>
                     </div>
                     <div class="col-md-1 right2">

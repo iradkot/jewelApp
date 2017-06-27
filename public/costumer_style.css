@@ -23,6 +23,10 @@
 .artists-list {
     text-align: center;
 }
+
+.main {
+    display: none;
+}
 * body {
     margin-top: 60px;
 }
