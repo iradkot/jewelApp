@@ -6,9 +6,9 @@ var artistSchema = new Schema({
     name: String,
     bio: String,
     email: String,
-    profile_pic: String,
-    //necklace_chains: [],
-    //necklace_settings: []
+    //profile_pic: String,
+    chains: [],
+    settings: []
 });
 
 var Artist = mongoose.model('Artist', artistSchema);
