@@ -74,6 +74,8 @@ $(".artists-list").on('click', '.artist-choose', function () {
             break;
         }
     }
+    $("#img1").attr('src', artists.chains[currentImage1]);
+    $("#img2").attr('src', artists.settings[currentImage2]);
     $('.main').show();
 });
 
