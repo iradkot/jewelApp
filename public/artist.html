@@ -3,7 +3,7 @@
 
 <head>
     <link rel="stylesheet" href="bootstrap\dist\css\bootstrap.css">
-    <link rel="stylesheet" href="/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.css">
     <link rel="stylesheet" href="artist_style.css">
     <title>Artists Page</title>
 </head>
@@ -18,15 +18,46 @@
             </ul>
         </div>
     </nav>
-    <form name="main" action="" method="POST">
-        Necklace:
-        <input type="text" name="necklace" id="necklace" value="">
-        <br/> Setting:
-        <input type="text" name="setting" id="setting" value="">
-        <br/>
-        <button type="button" class="button">submit </button>
+    <form class="form-horizontal post-form">
+        <div class="control-group">
+            <label class="control-label span3">Name</label>
+            <div class="controls">
+                <input type="text" class="name" /> </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label span3">Bio</label>
+            <div class="controls">
+                <input type="text" class="bio" />
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label span3">email</label>
+            <div class="controls">
+                <input type="text" class="email" />
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label span3">Necklace</label>
+            <div class="controls">
+                <input type="text" class="necklace-input1" />
+                <input type="text" class="necklace-input2" />
+                <input type="text" class="necklace-input3" />
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label span3">Setting</label>
+            <div class="controls">
+                <input type="text" class="setting-input1" />
+                <input type="text" class="setting-input2" />
+                <input type="text" class="setting-input3" />
+            </div>
+        </div>
+        <div class="control-group">
+            <button type="button" class="btn btn-primary submit-button
+">submit </button>
+        </div>
     </form>
-    <script src="jquery\dist\jquery.js"></script>
+    <script src="jquery/dist/jquery.js"></script>
     <script src="artist.js"></script>
 </body>
 
