@@ -20,7 +20,9 @@
   height: 100%;
   width: 100%;
 }*/
-
+.artists-list {
+    text-align: center;
+}
 * body {
     margin-top: 60px;
 }
