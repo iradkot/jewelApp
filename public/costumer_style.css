@@ -10,6 +10,7 @@
     width: 200px;
     height: 180px;
 }
+
 /*.bounding-box {
   background: url("http://orig02.deviantart.net/34f2/f/2014/340/4/2/jewels_png_by_violettalestrange-d88xk94.png") no-repeat center;
   background-size: contain;
@@ -19,3 +20,7 @@
   height: 100%;
   width: 100%;
 }*/
+
+* body {
+    margin-top: 60px;
+}
