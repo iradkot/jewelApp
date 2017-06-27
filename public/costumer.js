@@ -6,7 +6,6 @@
 // var setting3 = "http://www.dhresource.com/260x260s/f2-albu-g3-M00-49-75-rBVaHVYqqO-AbBz8AAJ-XqgvD_k084.jpg/wholesale-10x12mm-oval-solid-14k-gold-natural.jpg";
 var currentImage1 = 0;
 var currentImage2 = 0;
-
 function imageSliderIndexRight(arr, current) {
     if (current === arr.length - 1) {
         return 0;
@@ -30,10 +29,17 @@ $.ajax({
     url: "/artists",
     method: "Get"
 }).done(function (data) {
-    artists = data[0];  
+    artists = data[0];
+    var artists_arr = data;
     $('.artist-info').append("<h3>" + artists.name + "</h3>");
     $('.artist-info').append("<h5>" + artists.bio + "</h5>");
-    console.log(artists[0]);
+    /// now putting all artists
+    var source = $('#artists-template').html();
+    var template = Handlebars.compile(source);
+    for (var i = 0; i < artists_arr.length; i++) {
+        var newHTML = template(artists_arr[i]);
+        $('.artists-list').append(newHTML);
+    }
 }).fail(function (jqXHR, textStatus) {
     console.log(textStatus);
 });
