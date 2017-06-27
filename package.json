@@ -1,7 +1,6 @@
 {
   "name": "jewel_app",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -17,5 +16,14 @@
     "handlebars": "^4.0.10",
     "jquery": "^3.2.1",
     "mongoose": "^4.11.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iradkot/jewelApp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/iradkot/jewelApp/issues"
+  },
+  "homepage": "https://github.com/iradkot/jewelApp#readme",
+  "description": ""
 }
