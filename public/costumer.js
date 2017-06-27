@@ -8,7 +8,12 @@ var setting3 = '<img src="http://www.dhresource.com/260x260s/f2-albu-g3-M00-49-7
 var setting_arr = [setting1, setting2, setting3];
 var currentImage1 = 0;
 var currentImage2 = 0;
-
+var artist = {
+    name: "irad",
+    bio: "Make jewls around the world and kickass"
+}
+$('.artist-info').append("<h3>" + artist.name + "</h3>");
+$('.artist-info').append("<h5>" + artist.bio + "</h5>");
 function imageSliderIndexRight(arr, current){
     if (current===arr.length-1){
         return 0;
