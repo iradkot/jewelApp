@@ -1,61 +1,61 @@
-var chain1 = "https://cdn.shopify.com/s/files/1/1056/2378/products/31vlYRk46ML.jpg";
-var chain2 = "https://ae01.alicdn.com/kf/HTB1pqkbLXXXXXX.aXXXq6xXFXXXO/2016-Hot-New-Top-Quality-Silver-Plated-4MM-Twisted-font-b-String-b-font-Chains-font.jpg";
-var chain3 = "http://www.fashionlady.in/wp-content/uploads/2016/10/types-of-necklace-chains.jpg"; 
-var chain_arr = [chain1, chain2, chain3];
-var setting1 = "http://beadsnice.com/bn/product/201506/23/03/47140_fbx.jpg"; 
-var setting2 = "https://s-media-cache-ak0.pinimg.com/736x/a9/a5/8e/a9a58ecb6790a899259a4c3d4e9c8e68.jpg"; 
-var setting3 = "http://www.dhresource.com/260x260s/f2-albu-g3-M00-49-75-rBVaHVYqqO-AbBz8AAJ-XqgvD_k084.jpg/wholesale-10x12mm-oval-solid-14k-gold-natural.jpg"; 
-var setting_arr = [setting1, setting2, setting3];
+// var chain1 = "https://cdn.shopify.com/s/files/1/1056/2378/products/31vlYRk46ML.jpg";
+// var chain2 = "https://ae01.alicdn.com/kf/HTB1pqkbLXXXXXX.aXXXq6xXFXXXO/2016-Hot-New-Top-Quality-Silver-Plated-4MM-Twisted-font-b-String-b-font-Chains-font.jpg";
+// var chain3 = "http://www.fashionlady.in/wp-content/uploads/2016/10/types-of-necklace-chains.jpg";
+// var setting1 = "http://beadsnice.com/bn/product/201506/23/03/47140_fbx.jpg";
+// var setting2 = "https://s-media-cache-ak0.pinimg.com/736x/a9/a5/8e/a9a58ecb6790a899259a4c3d4e9c8e68.jpg";
+// var setting3 = "http://www.dhresource.com/260x260s/f2-albu-g3-M00-49-75-rBVaHVYqqO-AbBz8AAJ-XqgvD_k084.jpg/wholesale-10x12mm-oval-solid-14k-gold-natural.jpg";
 var currentImage1 = 0;
 var currentImage2 = 0;
-var artist = {
-    name: "irad",
-    bio: "Make jewls around the world and kickass",
-    chains: chain_arr,
-    settings: setting_arr
-}
-$('.artist-info').append("<h3>" + artist.name + "</h3>");
-$('.artist-info').append("<h5>" + artist.bio + "</h5>");
-function imageSliderIndexRight(arr, current){
-    if (current===arr.length-1){
+
+function imageSliderIndexRight(arr, current) {
+    if (current === arr.length - 1) {
         return 0;
     }
-    else{
+    else {
         current++;
         return current;
     }
 }
-function imageSliderIndexLeft(arr, current){
-    if (current===0){
-        return arr.length-1;
+function imageSliderIndexLeft(arr, current) {
+    if (current === 0) {
+        return arr.length - 1;
     }
-    else{
+    else {
         current--;
         return current;
     }
 }
-
-// $(".bounding-box1").append(chain_arr[currentImage1]);
-// $(".bounding-box2").append(setting_arr[currentImage2]);
-console.log(setting_arr);
-
-
-
-$('.left1').click(function(){
-    currentImage1 = imageSliderIndexLeft(artist.chains, currentImage1);
-    $("#img1").attr('src', artist.chains[currentImage1]);
+var artists = [];//for getting the array of atrists
+$.ajax({
+    url: "/artists",
+    method: "Get"
+}).done(function (data) {
+    artists = data[0];  
+    $('.artist-info').append("<h3>" + artists.name + "</h3>");
+    $('.artist-info').append("<h5>" + artists.bio + "</h5>");
+    console.log(artists[0]);
+}).fail(function (jqXHR, textStatus) {
+    console.log(textStatus);
 });
-$('.right1').click(function(){
-    currentImage1 = imageSliderIndexRight(artist.chains, currentImage1);
-    $("#img1").attr('src', artist.chains[currentImage1]);
+
+
+
+
+$('.left1').click(function () {
+    currentImage1 = imageSliderIndexLeft(artists.chains, currentImage1);
+    $("#img1").attr('src', artists.chains[currentImage1]);
 });
-$('.left2').click(function(){
-    currentImage2 = imageSliderIndexLeft(artist.settings, currentImage2);
-    $("#img2").attr('src', artist.settings[currentImage2]);
+$('.right1').click(function () {
+    currentImage1 = imageSliderIndexRight(artists.chains, currentImage1);
+    $("#img1").attr('src', artists.chains[currentImage1]);
 });
-$('.right2').click(function(){
-    currentImage2 = imageSliderIndexRight(artist.settings, currentImage2);
-    $("#img2").attr('src', artist.settings[currentImage2]);
+$('.left2').click(function () {
+    currentImage2 = imageSliderIndexLeft(artists.settings, currentImage2);
+    $("#img2").attr('src', artists.settings[currentImage2]);
+});
+$('.right2').click(function () {
+    currentImage2 = imageSliderIndexRight(artists.settings, currentImage2);
+    $("#img2").attr('src', artists.settings[currentImage2]);
 });
 
 
