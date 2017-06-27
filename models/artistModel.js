@@ -6,7 +6,7 @@ var artistSchema = new Schema({
     name: String,
     bio: String,
     email: String,
-    //profile_pic: String,
+    profile_pic: String,
     chains: [],
     settings: []
 });
