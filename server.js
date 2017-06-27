@@ -35,18 +35,13 @@ app.get('/artists', function (req, res) {
 
 // 2 - Add Chain + Setting Option to Necklace DB
 app.post('/artists', function (req, res) {
-    var chain1 = 'https://cdn.shopify.com/s/files/1/1056/2378/products/31vlYRk46ML.jpg';
-    var chain2 = 'https://ae01.alicdn.com/kf/HTB1pqkbLXXXXXX.aXXXq6xXFXXXO/2016-Hot-New-Top-Quality-Silver-Plated-4MM-Twisted-font-b-String-b-font-Chains-font.jpg';
-    var chain3 = 'http://www.fashionlady.in/wp-content/uploads/2016/10/types-of-necklace-chains.jpg';
-    var setting1 = 'http://beadsnice.com/bn/product/201506/23/03/47140_fbx.jpg"  class="img-responsive';
-    var setting2 = 'https://s-media-cache-ak0.pinimg.com/736x/a9/a5/8e/a9a58ecb6790a899259a4c3d4e9c8e68.jpg';
-    var setting3 = '"http://www.dhresource.com/260x260s/f2-albu-g3-M00-49-75-rBVaHVYqqO-AbBz8AAJ-XqgvD_k084.jpg/wholesale-10x12mm-oval-solid-14k-gold-natural.jpg';
+    console.log(req.body);
     var newArtist = new Artist({
-        name: 'Irad',
-        bio: 'Jewish Jeweler',
-        email: 'Irad16@gmail.com',
-        chains: [chain1, chain2, chain3],
-        settings: [setting1, setting2, setting3]
+        name: req.body.name,
+        bio: req.body.bio,
+        email: req.body.email,
+        chains: req.body['chains[]'],
+        settings: req.body['settings[]']
     });
     newArtist.save(handler(res));
 });
