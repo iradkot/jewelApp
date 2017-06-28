@@ -62,6 +62,13 @@ a {
   height: 100%;
   width: 100%;
 }*/
+.profile_box {
+    margin: 8px;
+}
+.profile_box:hover {
+    cursor: pointer;
+}
+
 .arrows:hover {
     margin: 2px;
     cursor: pointer;
