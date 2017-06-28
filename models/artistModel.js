@@ -8,7 +8,8 @@ var artistSchema = new Schema({
     email: String,
     profile_pic: String,
     chains: [],
-    settings: []
+    settings: [],
+    theme: String
 });
 
 var Artist = mongoose.model('Artist', artistSchema);
