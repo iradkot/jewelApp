@@ -4,6 +4,9 @@
 // var setting1 = "http://beadsnice.com/bn/product/201506/23/03/47140_fbx.jpg";
 // var setting2 = "https://s-media-cache-ak0.pinimg.com/736x/a9/a5/8e/a9a58ecb6790a899259a4c3d4e9c8e68.jpg";
 // var setting3 = "http://www.dhresource.com/260x260s/f2-albu-g3-M00-49-75-rBVaHVYqqO-AbBz8AAJ-XqgvD_k084.jpg/wholesale-10x12mm-oval-solid-14k-gold-natural.jpg";
+$(document).ready(function(){
+    $('h1').addClass('animated tada');
+})
 var currentImage1 = 0;
 var currentImage2 = 0;
 function imageSliderIndexRight(arr, current) {
@@ -50,19 +53,36 @@ $.ajax({
 $('.left1').click(function () {
     currentImage1 = imageSliderIndexLeft(artists.chains, currentImage1);
     $("#img1").attr('src', artists.chains[currentImage1]);
+    $('#img1').addClass('animated flipInX');
+    setTimeout(function () {
+        $('#img1').removeClass('animated flipInX');
+    }, 1000);
 });
 $('.right1').click(function () {
     currentImage1 = imageSliderIndexRight(artists.chains, currentImage1);
     $("#img1").attr('src', artists.chains[currentImage1]);
+    $('#img1').addClass('animated flipInX');
+    setTimeout(function () {
+        $('#img1').removeClass('animated flipInX');
+    }, 1000);
 });
 $('.left2').click(function () {
     currentImage2 = imageSliderIndexLeft(artists.settings, currentImage2);
     $("#img2").attr('src', artists.settings[currentImage2]);
+    $('#img2').addClass('animated flipInX');
+    setTimeout(function () {
+        $('#img2').removeClass('animated flipInX');
+    }, 1000);
 });
 $('.right2').click(function () {
     currentImage2 = imageSliderIndexRight(artists.settings, currentImage2);
     $("#img2").attr('src', artists.settings[currentImage2]);
+    $('#img2').addClass('animated flipInX');
+    setTimeout(function () {
+        $('#img2').removeClass('animated flipInX');
+    }, 1000);
 });
+
 
 $(".artists-list").on('click', '.artist-choose', function () {
     var id = $(this).data().id;
@@ -81,7 +101,7 @@ $(".artists-list").on('click', '.artist-choose', function () {
     $('.main').show();
 });
 var order = {};
-$('#send').click(function(){
+$('#send').click(function () {
     order.costumer_name = $('#cost_name').val();
     $('#cost_name').val("");
     order.costumer_email = $('#cost_email').val();
