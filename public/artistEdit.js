@@ -30,6 +30,4 @@ $('.submit-button').on('click', function () {
         input = { text: $('input[class=optradio2]:checked').val() };
     }
     editArtist(email, option, input);
-    $('.edit-artist-input').val('');
-    $(this).siblings('input').val('');
 });
