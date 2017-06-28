@@ -25,8 +25,14 @@
     </div>
     <div class="container artists-list"></div>
     <script id="artists-template" type="text/x-handlebars-template">
-        <a class="artist-choose" data-id='{{_id}}'> {{name}} </a>
-        <image class="artist-choose" src="{{profile_pic}}">
+        <div class="profile_box">
+            <div class="name">
+                <a class="artist-choose" data-id='{{_id}}'> {{name}} </a>
+            </div>
+            <div class="profile_pic_box">
+                <img class="img-circle artist-choose" src="{{profile_pic}}">
+            </div>
+        </div>       
     </script>
     <div class="container main">
         <div class="row">
@@ -42,7 +48,7 @@
                     </div>
                     <div class="col-md-8 image_box">
                         <div class="bounding-box1">
-                            <img id="img1" src="">
+                            <img class = "slider_image" id="img1" src="">
                         </div>
                     </div>
                     <div class="col-md-2 right1">
@@ -59,7 +65,7 @@
                     </div>
                     <div class="col-md-8 image_box">
                         <div class="bounding-box2">
-                            <img id="img2" src="">
+                            <img class = "slider_image" id="img2" src="">
                         </div>
                     </div>
                     <div class="col-md-2 right2">
@@ -68,6 +74,8 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class=""
     </div>
 
 
@@ -75,6 +83,7 @@
     <script type='text/javascript' src='/bootstrap/dist/js/bootstrap.js'></script>
     <script type='text/javascript' src='/handlebars/dist/handlebars.js'></script>
     <script type='text/javascript' src='costumer.js'></script>
+    <script type='text/javascript' src='costumer-style.js'></script>
 
 </body>
 

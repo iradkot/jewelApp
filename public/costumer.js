@@ -33,6 +33,7 @@ $.ajax({
     // artists = data[0];
     artists_arr = data;
     /// now putting all artists
+    console.log(data);
     var source = $('#artists-template').html();
     var template = Handlebars.compile(source);
     for (var i = 0; i < artists_arr.length; i++) {
