@@ -41,7 +41,8 @@ app.post('/artists', function (req, res) {
         email: req.body.email,
         profile_pic: req.body.profile_pic,
         chains: req.body['chains[]'],
-        settings: req.body['settings[]']
+        settings: req.body['settings[]'],
+        theme: 'rgb(230, 245, 255)'
     });
     newArtist.save(handler(res));
 });
