@@ -1,3 +1,8 @@
+.bio {
+    height: 100px;
+    width: 1000px;
+}
+
 .post-form {
     margin-left: 20px;
 }
@@ -8,8 +13,17 @@
 
 body {
     margin-top: 60px;
+    font-family: 'Helvetica';
+    background: rgb(237, 224, 218);
 }
 
 * {
     box-sizing: border-box;
 }
+
+// Colors 
+// cream - rgb(237, 224, 218)   ede0da
+// red - rgb(255, 220, 220); 
+// yellow - rgb(255, 250, 230);
+// green - rgb(230, 255, 235);
+// blue - rgb(230, 245, 255);
