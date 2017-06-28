@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="bootstrap\dist\css\bootstrap.css">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.css">
     <link href="https://fonts.googleapis.com/css?family=Cutive+Mono" rel="stylesheet">
@@ -12,78 +13,98 @@
 
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container nav1">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="index.html">Front Page</a></li>
-                <li><a href="costumer.html">Customer</a></li>
-                <li><a href="#">Artist</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="admin.html"><span class="glyphicon glyphicon-log-in"></span> Admin</a></li>
-            </ul>
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle stackbutton" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">JewelApp!</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="index.html">Front Page</a></li>
+                    <li class="dropdown">
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Front Page</a></li>
+                            <li><a href="costumer.html">Customer</a></li>
+                            <li><a href="artist.html">Artist</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="costumer.html">Customer</a></li>
+                    <li><a href="#">Artist</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="admin.html"><span class="glyphicon glyphicon-log-in"></span> Admin</a></li>
+                </ul>
+            </div>
         </div>
     </nav>
-    <form class="form-horizontal post-form">
-        <div class="control-group">
-            <label class="control-label span3">Name</label>
-            <div class="controls">
-                <input type="text" class="name" /> </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label span3">Profile Pic</label>
-            <div class="controls">
-                <input type="text" class="profilePic" />
+    <div class="container">
+        <h2>Artists Sign Up Form</h2>
+        <form class="form-horizontal post-form">
+            <div class="control-group">
+                <label class="control-label span3">Name: </label>
+                <div class="controls">
+                    <input type="text" class="name" placeholder="Enter Name" /> </div>
             </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label span3">Email</label>
-            <div class="controls">
-                <input type="email" class="email" />
+            <div class="control-group">
+                <label class="control-label span3">Profile Pic: </label>
+                <div class="controls">
+                    <input type="text" class="profilePic" placeholder="add img url" />
+                </div>
             </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label span3">Bio</label>
-            <div class="controls">
-                <textarea rows="3" cols="80" id="cost_text"></textarea>
+            <div class="control-group">
+                <label class="control-label span3">Email: </label>
+                <div class="controls">
+                    <input type="email" class="email" placeholder="Enter email" />
+                </div>
             </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label span3">Necklace</label>
-            <div class="controls">
-                <input type="text" class="necklace-input1" />
-                <input type="text" class="necklace-input2" />
-                <input type="text" class="necklace-input3" />
+            <div class="control-group">
+                <label class="control-label span3">Bio: </label>
+                <div class="controls">
+                    <textarea rows="3" cols="80" id="cost_text" placeholder="Tell your customers what inspired you and your work..."></textarea>
+                </div>
             </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label span3">Setting</label>
-            <div class="controls">
-                <input type="text" class="setting-input1" />
-                <input type="text" class="setting-input2" />
-                <input type="text" class="setting-input3" />
+            <div class="control-group">
+                <label class="control-label span3">Necklace: </label>
+                <div class="controls">
+                    <input type="text" class="necklace-input1" placeholder="add img url" />
+                    <input type="text" class="necklace-input2" placeholder="add img url" />
+                    <input type="text" class="necklace-input3" placeholder="add img url" />
+                </div>
             </div>
-            <div class="radio-div1">
-                <label class="control-label span3">Theme</label>
-                <label class="radio-inline">
-                    <input type="radio" id="cream" name="optradio" value="rgba(255, 0, 0, 0.2)">Red.</label>
-                <label class="radio-inline">
-                    <input type="radio" name="optradio" value="rgba(249, 115, 0, 0.25)">Orange.</label>
-                <label class="radio-inline">
-                    <input type="radio" name="optradio" value="rgba(247, 239, 0, 0.15)">Yellow.</label>
-                <label class="radio-inline">
-                    <input type="radio" name="optradio" value="rgba(0, 255, 0, 0.15)">Green.</label>
-                <label class="radio-inline">
-                    <input type="radio" name="optradio" value="rgba(0, 0, 255, 0.15)">Blue.</label>
-                <label class="radio-inline">
-                    <input type="radio" name="optradio" value="rgba(225, 0, 249, 0.15)">Purple.</label>
-                <label class="radio-inline">
-                    <input type="radio" name="optradio" value="rgb(237, 224, 218)">Cream.</label>
+            <div class="control-group">
+                <label class="control-label span3">Setting: </label>
+                <div class="controls">
+                    <input type="text" class="setting-input1" placeholder="add img url" />
+                    <input type="text" class="setting-input2" placeholder="add img url" />
+                    <input type="text" class="setting-input3" placeholder="add img url" />
+                </div>
+                <div class="radio-div1">
+                    <label class="control-label span3">Background Theme: </label>
+                    <label class="radio-inline">
+                        <input type="radio" id="cream" name="optradio" value="rgba(255, 0, 0, 0.15)">Red.</label>
+                    <label class="radio-inline">
+                        <input type="radio" name="optradio" value="rgba(249, 115, 0, 0.2)">Orange.</label>
+                    <label class="radio-inline">
+                        <input type="radio" name="optradio" value="rgba(247, 239, 0, 0.15)">Yellow.</label>
+                    <label class="radio-inline">
+                        <input type="radio" name="optradio" value="rgba(0, 255, 0, 0.15)">Green.</label>
+                    <label class="radio-inline">
+                        <input type="radio" name="optradio" value="rgba(0, 0, 255, 0.15)">Blue.</label>
+                    <label class="radio-inline">
+                        <input type="radio" name="optradio" value="rgba(225, 0, 249, 0.15)">Purple.</label>
+                    <label class="radio-inline">
+                        <input type="radio" name="optradio" value="rgb(237, 224, 218)">Cream.</label>
+                </div>
             </div>
-        </div>
-        <div class="control-group">
-            <button type="button" class="btn btn-primary submit-button">submit </button>
-        </div>
-    </form>
+            <div class="control-group">
+                <button type="submit" class="btn btn-primary submit-button">submit </button>
+            </div>
+        </form>
+    </div>
     <script src="jquery/dist/jquery.js"></script>
     <script src="artist.js"></script>
 </body>

@@ -1,3 +1,9 @@
+$(".stackbutton").click(function(){
+    $('#myNavbar').toggle('slow');
+})
+
+
+
 $(".submit-button").on('click', function() {
     var name = $(".name").val();
 
@@ -17,8 +23,8 @@ $(".submit-button").on('click', function() {
 
     var selected = $('input[name=optradio]:checked').val();
 
-    var newObj = {
-        name: name,
+    var newObj = {name: name,
+
         bio: bio,
         email: email,
         profile_pic: profilePic,
