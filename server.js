@@ -53,6 +53,32 @@ app.delete('/artist/:artistEmail', function (req, res) {
     Artist.findOne({ email: req.params.artistEmail }).remove().exec(handler(res));
 });
 
+// 4 - Edit Artist
+app.post('/artist/:email/option/:option', function (req, res) {
+    var email = req.params.email;
+    var option = req.params.option;
+    switch (option) {
+        case 'profile_pic':
+            var update = { $set: { profile_pic: req.body.text } };
+            break;
+        case 'bio':
+            var update = { $set: { bio: req.body.text } };
+            break;
+        case 'theme':
+            var update = { $set: { theme: req.body.text } };
+            break;
+        case 'chains':
+            var update = { $push: { chains: req.body.text } };
+            break;
+        case 'settings':
+            var update = { $push: { settings: req.body.text } };
+            break;
+        default:
+            var update = { $set: {} };
+    }
+    Artist.findOneAndUpdate(req.params.postId, update, { new: true }, handler(res));
+});
+
 app.listen(8000, function () {
     console.log("Go To localhost:8000 !!!)");
 });
