@@ -18,7 +18,7 @@ app.use(express.static('node_modules'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// Handles Success / Failure , and returns data
+// Handles Success / Failure , and Returns data
 var handler = function (res) {
     return function (err, data) {
         if (err) {
@@ -35,7 +35,6 @@ app.get('/artists', function (req, res) {
 
 // 2 - Add Chain + Setting Option to Necklace DB
 app.post('/artists', function (req, res) {
-    console.log(req.body);
     var newArtist = new Artist({
         name: req.body.name,
         bio: req.body.bio,
@@ -47,6 +46,10 @@ app.post('/artists', function (req, res) {
     newArtist.save(handler(res));
 });
 
+// 3 - Delete Artist
+app.delete('/artist/:artistEmail', function (req, res) {
+    Artist.findOne({ email: req.params.artistEmail }).remove().exec(handler(res));
+});
 
 app.listen(8000, function () {
     console.log("Go To localhost:8000 !!!)");
