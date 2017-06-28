@@ -21,10 +21,10 @@
             </ul>
         </div>
     </nav>
-    <div class="container">
-        <div class="row header">
-            <h1>JewelApp</h1>
-        </div>
+    <div class="jumbotron" style="text-align: center">
+        <h1>JewelApp</h1>
+        <p>The place that lets you combine your own jewels from different artists!</p>
+    </div>
     </div>
     <div class="container artists-list"></div>
     <script id="artists-template" type="text/x-handlebars-template">
@@ -47,7 +47,7 @@
             <div class="col-md-6 col-md-offset-3 image_slider" id: "image_slider1">
                 <div class="row">
                     <div class="col-md-2 left1">
-                        <button type="button" class="btn btn-success">left button</button>
+                        <img class="arrows" src="left.png">
                     </div>
                     <div class="col-md-8 image_box">
                         <div class="bounding-box1">
@@ -55,7 +55,7 @@
                         </div>
                     </div>
                     <div class="col-md-2 right1">
-                        <button type="button" class="btn btn-success">right button</button>
+                        <img class="arrows" src="right.png">
                     </div>
                 </div>
             </div>
@@ -64,7 +64,7 @@
             <div class="col-md-6 col-md-offset-3 image_slider" id: "image_slider2">
                 <div class="row">
                     <div class="col-md-2 left2">
-                        <button type="button" class="btn btn-success">left button</button>
+                        <img class="arrows" src="left.png">
                     </div>
                     <div class="col-md-8 image_box">
                         <div class="bounding-box2">
@@ -72,7 +72,7 @@
                         </div>
                     </div>
                     <div class="col-md-2 right2">
-                        <button type="button" class="btn btn-success">right button</button>
+                        <img class="arrows" src="right.png">
                     </div>
                 </div>
             </div>
@@ -85,8 +85,7 @@
                         <label>enter you name</label>
                         <input type="text" class="form-control" id="cost_name" aria-describedby="helpId" placeholder="">
                         <label>enter you email</label>
-                        <input type="email" class="form-control"
-                           id="cost_email" aria-describedby="helpId" placeholder="">
+                        <input type="email" class="form-control" id="cost_email" aria-describedby="helpId" placeholder="">
                         <label>any special requests?</label>
                         <textarea rows="3" cols="80" id="cost_text">
                         </textarea>

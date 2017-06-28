@@ -13,6 +13,7 @@ var Necklace = require('./models/necklaceModel.js');
 var app = express();
 
 app.use(express.static('public'));
+app.use(express.static('arrows'));
 app.use(express.static('node_modules'));
 
 app.use(bodyParser.json());

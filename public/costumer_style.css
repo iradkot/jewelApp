@@ -62,6 +62,14 @@ a {
   height: 100%;
   width: 100%;
 }*/
+.arrows:hover {
+    margin: 2px;
+    cursor: pointer;
+}
+.arrows:click {
+    padding-bottom: 20px;
+    cursor: pointer;
+}
 .artists-list {
     text-align: center;
 }
