@@ -21,7 +21,6 @@
             </ul>
         </div>
     </nav>
-
     <form class="form-horizontal post-form">
         <div class="control-group">
             <label class="control-label span3">Name</label>
@@ -43,7 +42,7 @@
         <div class="control-group">
             <label class="control-label span3">Bio</label>
             <div class="controls">
-                <input type="text" class="bio" />
+                <textarea rows="3" cols="80" id="cost_text"></textarea>
             </div>
         </div>
         <div class="control-group">
@@ -61,13 +60,19 @@
                 <input type="text" class="setting-input2" />
                 <input type="text" class="setting-input3" />
             </div>
-            Theme<br>
-        <input type="radio" name="cream">cream<br>
-        <input type="radio" name="red">red<br>
-        <input type="radio" name="blue">blue<br>
-        <input type="radio" name="green">green<br>
-        <input type="radio" name="yellow">yellow<br>
+            <label class="control-label span3">Theme</label>
 
+            <label class="radio-inline">
+                <input type="radio" name="optradio" value="rgb(237, 224, 218)">Cream.</label>
+            <label class="radio-inline">
+                <input type="radio" name="optradio" value="rgb(255, 220, 220)">Red.</label>
+            <label class="radio-inline">
+                <input type="radio" name="optradio" value="rgb(230, 245, 255)">Blue.</label>
+            <label class="radio-inline">
+                <input type="radio" name="optradio" value="rgb(230, 255, 235)" > Green.</label>
+            <label class="radio-inline">
+                <input  type="radio" name="optradio" value="rgb(255, 250, 230)">Yellow.</label>
+        </div>
         </div>
         <div class="control-group">
             <button type="button" class="btn btn-primary submit-button">submit </button>

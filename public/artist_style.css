@@ -1,3 +1,5 @@
+var selected = $('input[name=optradio]:checked').val();
+
 .bio {
     height: 100px;
     width: 1000px;
@@ -21,9 +23,12 @@ body {
     box-sizing: border-box;
 }
 
+$(".btn-group button").removeClass("active");
+
 // Colors 
 // cream - rgb(237, 224, 218)   ede0da
 // red - rgb(255, 220, 220); 
-// yellow - rgb(255, 250, 230);
+// yellow - rgb(255, 250, 230)
+;
 // green - rgb(230, 255, 235);
 // blue - rgb(230, 245, 255);
