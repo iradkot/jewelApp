@@ -1,7 +1,7 @@
 $(".submit-button").on('click', function() {
     var name = $(".name").val();
 
-    var bio = $(".bio").val();
+    var bio = $("#cost_text").val();
 
     var email = $(".email").val();
 
@@ -37,7 +37,7 @@ $(".submit-button").on('click', function() {
         }
     });
     $(".name").val('');
-    $(".bio").val('');
+    $("#cost_text").val('');
     $(".email").val('');
     $(".profilePic").val('');
     $(".necklace-input1").val('');
@@ -46,4 +46,9 @@ $(".submit-button").on('click', function() {
     $(".setting-input1").val('');
     $(".setting-input2").val('');
     $(".setting-input3").val('');
+});
+
+$('.radio-div1').on('change', '.radio-inline', function() {
+    var selected = $('input[name=optradio]:checked').val();
+    $("body").css("background-color", selected)
 });
