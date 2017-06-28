@@ -75,10 +75,24 @@ $(".artists-list").on('click', '.artist-choose', function () {
             break;
         }
     }
+    $('body').css("background-color", artists.theme);
     $("#img1").attr('src', artists.chains[currentImage1]);
     $("#img2").attr('src', artists.settings[currentImage2]);
     $('.main').show();
 });
+var order = {};
+$('#send').click(function(){
+    order.costumer_name = $('#cost_name').val();
+    $('#cost_name').val("");
+    order.costumer_email = $('#cost_email').val();
+    $('#cost_email').val("");
+    order.costumer_info = $('#cost_text').val();
+    $('#cost_text').val('');
+    order.artist_email = artists.email;
+    order.chain = $("#img1").attr('src');
+    order.setting = $("#img2").attr('src');
+    console.log(order);
+})
 
 
 
