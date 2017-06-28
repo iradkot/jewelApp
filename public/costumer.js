@@ -64,7 +64,7 @@ $('.right1').click(function () {
     $('#img1').addClass('animated flipInX');
     setTimeout(function () {
         $('#img1').removeClass('animated flipInX');
-    }, 1000);
+    }, 2000);
 });
 $('.left2').click(function () {
     currentImage2 = imageSliderIndexLeft(artists.settings, currentImage2);
