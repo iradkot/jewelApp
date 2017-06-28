@@ -24,6 +24,34 @@
 a {
     cursor: pointer;
 }
+.profile_box {
+    border: 2px solid black;
+    display: inline-block;
+}
+
+.artist-choose {
+    width: 50px;
+    height: 50px;
+    max-width: 100%;
+    max-height: 100%;
+}
+.transition {
+    -webkit-transform: scale(1.6); 
+    -moz-transform: scale(1.6);
+    -o-transform: scale(1.6);
+    transform: scale(1.6);
+}
+.slider_image {
+	-webkit-transition: all .4s ease-in-out;
+	-moz-transition: all .4s ease-in-out;
+	-o-transition: all .4s ease-in-out;
+	-ms-transition: all .4s ease-in-out;
+}
+
+.slider_image {
+    width:80px;
+    margin:25px;
+}
 
 /*.bounding-box {
   background: url("http://orig02.deviantart.net/34f2/f/2014/340/4/2/jewels_png_by_violettalestrange-d88xk94.png") no-repeat center;
