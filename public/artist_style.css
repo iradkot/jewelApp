@@ -1,5 +1,4 @@
-var selected = $('input[name=optradio]:checked').val();
-
+var selected=$('input[name=optradio]:checked').val();
 .bio {
     height: 100px;
     width: 1000px;
@@ -15,8 +14,8 @@ var selected = $('input[name=optradio]:checked').val();
 
 body {
     margin-top: 60px;
-    font-family: 'Helvetica';
-    background: rgb(237, 224, 218);
+    font-family: 'Cutive Mono', monospace;
+    background: rgb(237, 224, 218)
 }
 
 * {
@@ -24,11 +23,13 @@ body {
 }
 
 $(".btn-group button").removeClass("active");
-
 // Colors 
-// cream - rgb(237, 224, 218)   ede0da
-// red - rgb(255, 220, 220); 
-// yellow - rgb(255, 250, 230)
-;
-// green - rgb(230, 255, 235);
-// blue - rgb(230, 245, 255);
+// cream - rgb(237, 224, 218)
+// red - rgba(255, 0, 0, 0.2)
+// orange - rgba(249, 115, 0, 0.25)
+// yellow - rgba(247, 239, 0, 0.15)
+// green - rgba(0, 255, 0, 0.15)
+// blue - rgba(0, 0, 255, 0.15)
+// purple - rgba(225, 0, 249, 0.15)
+// all other text font-family: 'Cutive Mono', monospace;
+// headers font-family: 'Ruthie', cursive; ***need to make big font size
