@@ -1,0 +1,11 @@
+.profile_picDiv, .emailDiv, .bioDiv, .chainsDiv, .settingsDiv, .themeDiv {
+    display: none;
+}
+
+body {
+    margin-top: 60px;
+}
+
+* {
+    box-sizing: border-box;
+}
