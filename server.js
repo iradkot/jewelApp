@@ -54,6 +54,7 @@ app.delete('/artist/:artistEmail', function (req, res) {
 });
 
 // 4 - Edit Artist
+// Fake Put Request
 app.post('/artist/:email/option/:option', function (req, res) {
     var email = req.params.email;
     var option = req.params.option;
