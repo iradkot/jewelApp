@@ -27,16 +27,23 @@
     <div class='container'>
         <div class='row'>
             <div class='col-lg-6 col-lg-offset-3'>
-                <div class='text-center remove-artist'>
-                    <input class="remove-artist-input" type="text" placeholder="  Artist Email" />
-                    <button type="button" class="btn btn-primary remove-artist-button">Remove</button>
-                </div>
+                <form class="form-horizontal">
+                    <div class="control-group text-center remove-artist">
+                        <div class="controls">
+                            <input class="remove-artist-input" type="text" placeholder="  Artist Email" />
+                            <button type="button" class="btn btn-danger remove-artist-button">Delete</button>
+                        </div>
+                    </div>
+                    <div class='control-group artist-list'>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 
     <script type='text/javascript' src='/jquery/dist/jquery.js'></script>
     <script type='text/javascript' src='/bootstrap/dist/js/bootstrap.js'></script>
+    <script type="text/javascript" src="/handlebars/dist/handlebars.js"></script>
     <script type='text/javascript' src='admin.js'></script>
 
 </body>
