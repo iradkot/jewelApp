@@ -80,7 +80,8 @@ app.post('/artists', function (req, res) {
         profile_pic: req.body.profile_pic,
         chains: req.body['chains[]'],
         settings: req.body['settings[]'],
-        theme: req.body.theme
+        theme: req.body.theme,
+        score: 0
     });
     newArtist.save(handler(res));
 });
@@ -114,7 +115,7 @@ app.post('/artist/:email/option/:option', function (req, res) {
         default:
             var update = { $set: {} };
     }
-    Artist.findOneAndUpdate(req.params.postId, update, { new: true }, handler(res));
+    Artist.findOneAndUpdate({ email: req.params.email }, update, { new: true }, handler(res));
 });
 
 // Get Customer Order and Send out Emails
@@ -149,6 +150,9 @@ app.post('/order', function (req, res) {
             console.log('Email sent: ' + info.response);
         }
     });
+
+    var update = { $set: { score: score + 1 } };
+    Artist.findOneAndUpdate({ email: req.params.artist_email }, update, { new: true }, handler(res));
 
     res.send();
 });
