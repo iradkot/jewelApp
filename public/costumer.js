@@ -138,11 +138,11 @@ $('#send').click(function () {
     $('#sendsLeft').empty();
     $('#sendsLeft').append(sendsLeft);
 
-    order.costumer_name = $('#cost_name').val();
+    order.customer_name = $('#cost_name').val();
     $('#cost_name').val("");
-    order.costumer_email = $('#cost_email').val();
+    order.customer_email = $('#cost_email').val();
     $('#cost_email').val("");
-    order.costumer_info = $('#cost_text').val();
+    order.customer_info = $('#cost_text').val();
     $('#cost_text').val('');
     order.artist_email = artists.email;
     order.chain = $("#img1").attr('src');
@@ -159,18 +159,21 @@ $('#send').click(function () {
     console.log(order);
 })
 
+$('.top_artists').append("<li>hi</li>");
 
-// function bubbleSort(arr) {
-//     var sorted = false;
-//     while (!sorted) {
-//         var count = 1;
-//         for (var i = 0; i < arr.length - 1; i++) {
-//             if (arr[i] > arr[i + 1]) {
-//                 count = 0;
-//                 arr.splice(i + 1, 0, arr[i]);
-//                 arr.splice(i, 1);
-//             }
 
-//         }
-//     }
-// }
+function bubble(arr) {
+    var len = arr.length;
+
+    for (var i = 0; i < len; i++) {
+        for (var j = 0; j < len - i - 1; j++) { // this was missing
+            if (arr[j] > arr[j + 1]) {
+                // swap
+                var temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+    return arr;
+}
