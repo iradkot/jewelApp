@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var nodemailer = require('nodemailer');
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/jewelApp', function () {
@@ -12,12 +13,39 @@ var Necklace = require('./models/necklaceModel.js');
 
 var app = express();
 
+// var smtpTransport = nodemailer.createTransport({
+//     service: "gmail",
+//     host: "smtp.gmail.com",
+//     auth: {
+//         user: "",
+//         pass: ""
+//     }
+// });
+
 app.use(express.static('public'));
 app.use(express.static('arrows'));
 app.use(express.static('node_modules'));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+// app.get('/order', function (req, res) {
+//     var mailOptions = {
+//         to: req.query.to,
+//         subject: req.query.subject,
+//         text: req.query.text
+//     }
+//     console.log(mailOptions);
+//     smtpTransport.sendMail(mailOptions, function (error, response) {
+//         if (error) {
+//             console.log(error);
+//             res.end("error");
+//         } else {
+//             console.log("Message sent: " + response.message);
+//             res.end("sent");
+//         }
+//     });
+// });
 
 // Handles Success / Failure , and Returns data
 var handler = function (res) {
@@ -79,6 +107,13 @@ app.post('/artist/:email/option/:option', function (req, res) {
     }
     Artist.findOneAndUpdate(req.params.postId, update, { new: true }, handler(res));
 });
+
+
+// Get Customer Order
+app.get('/order', function (req, res) {
+    var temp = req.body;
+});
+
 
 app.listen(8000, function () {
     console.log("Go To localhost:8000 !!!)");
