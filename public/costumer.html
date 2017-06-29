@@ -6,6 +6,7 @@
     <link rel='stylesheet' type='text/css' href='/bootstrap/dist/css/bootstrap.css'>
     <link rel='stylesheet' type='text/css' href='/font-awesome/css/font-awesome.css'>
     <link href="https://fonts.googleapis.com/css?family=Dosis|Montserrat" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oleo+Script|Righteous|Shadows+Into+Light" rel="stylesheet">
     <link rel='stylesheet' href='/animate.css/animate.min.css'>
     <link rel='stylesheet' type='text/css' href='costumer_style.css'>
 </head>
@@ -19,6 +20,7 @@
                 <li><a href="artist.html">Artist</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <li><a>number of orders left: <div id="sendsLeft"></div></a></li>
                 <li><a href="artistEdit.html"><span class="glyphicon glyphicon-edit"></span> Edit Artist</a></li>
                 <li><a href="admin.html"><span class="glyphicon glyphicon-trash"></span> Admin</a></li>
             </ul>
@@ -26,7 +28,7 @@
     </nav>
     <div class="jumbotron" style="text-align: center">
         <h1>The Jewel Synthesizer</h1>
-        <p>The place that lets you combine your own jewels from different artists!</p>
+        <p id="head-description">The place that lets you combine your own jewels from different artists!</p>
     </div>
     </div>
     <div class="container artists-list"></div>

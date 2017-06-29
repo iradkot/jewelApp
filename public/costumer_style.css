@@ -64,6 +64,9 @@ a {
   height: 100%;
   width: 100%;
 }*/
+#sendsLeft {
+    display: inline;
+}
 .profile_box {
     margin: 8px;
 }
@@ -71,6 +74,7 @@ a {
     cursor: pointer;
 }
 .arrows {
+    margin-left: -30px;
     margin-top: 59px;
 }
 .arrows:hover {
@@ -80,6 +84,12 @@ a {
 .arrows:active {
     padding-top: 2px;
     cursor: pointer;
+}
+.box {
+    box-shadow: 0px 8px 5px #393333;
+}
+.profile_box:hover {
+    box-shadow: 0px 8px 5px #393333;
 }
 .artists-list {
     text-align: center;
@@ -100,5 +110,5 @@ body {
 
 * {
     box-sizing: border-box;
-    font-family: Montserrat;
+    font-family:  'Righteous';
 }

@@ -1,11 +1,20 @@
-// var chain1 = "https://cdn.shopify.com/s/files/1/1056/2378/products/31vlYRk46ML.jpg";
-// var chain2 = "https://ae01.alicdn.com/kf/HTB1pqkbLXXXXXX.aXXXq6xXFXXXO/2016-Hot-New-Top-Quality-Silver-Plated-4MM-Twisted-font-b-String-b-font-Chains-font.jpg";
-// var chain3 = "http://www.fashionlady.in/wp-content/uploads/2016/10/types-of-necklace-chains.jpg";
-// var setting1 = "http://beadsnice.com/bn/product/201506/23/03/47140_fbx.jpg";
-// var setting2 = "https://s-media-cache-ak0.pinimg.com/736x/a9/a5/8e/a9a58ecb6790a899259a4c3d4e9c8e68.jpg";
-// var setting3 = "http://www.dhresource.com/260x260s/f2-albu-g3-M00-49-75-rBVaHVYqqO-AbBz8AAJ-XqgvD_k084.jpg/wholesale-10x12mm-oval-solid-14k-gold-natural.jpg";
-$(document).ready(function(){
+var STORAGE_ID = 'jewel-app';
+var saveToLocalStorage = function () {
+    localStorage.setItem(STORAGE_ID, JSON.stringify(sendsLeft));
+    console.log(sendsLeft);
+}
+var getFromLocalStorage = function () {
+    return JSON.parse(localStorage.getItem(STORAGE_ID) || '2');
+}
+var sendsLeft = getFromLocalStorage();
+$('#sendsLeft').append(sendsLeft);
+
+
+$('#head-description').hide();
+$(document).ready(function () {
     $('h1').addClass('animated tada');
+    $('#head-description').show();
+    $('#head-description').addClass('animated bounceInUp')
 })
 var currentImage1 = 0;
 var currentImage2 = 0;
@@ -36,7 +45,6 @@ $.ajax({
     // artists = data[0];
     artists_arr = data;
     /// now putting all artists
-    console.log(data);
     var source = $('#artists-template').html();
     var template = Handlebars.compile(source);
     for (var i = 0; i < artists_arr.length; i++) {
@@ -84,7 +92,23 @@ $('.right2').click(function () {
 });
 
 
+
+
 $(".artists-list").on('click', '.artist-choose', function () {
+    // animating artist choose boxes
+    $(this).closest('.profile_box').addClass('box');
+    $(this).closest('.profile_box').siblings().removeClass('box');
+    //animating the images "refresh"
+    $('#img1').addClass('animated lightSpeedIn');
+    setTimeout(function () {
+        $('#img1').removeClass('animated lightSpeedIn');
+    }, 1000);
+    $('#img2').addClass('animated lightSpeedIn');
+    setTimeout(function () {
+        $('#img2').removeClass('animated lightSpeedIn');
+    }, 1000);
+
+
     var id = $(this).data().id;
     $('.artist-info').empty();
     for (var i = 0; i < artists_arr.length; i++) {
@@ -102,6 +126,18 @@ $(".artists-list").on('click', '.artist-choose', function () {
 });
 var order = {};
 $('#send').click(function () {
+    if (sendsLeft == 0) {
+        alert("you reached your daily limit");
+        setTimeout(function () {
+            sendsLeft = 2;
+        }, 10000);
+        return;
+    }
+
+    sendsLeft--;
+    $('#sendsLeft').empty();
+    $('#sendsLeft').append(sendsLeft);
+
     order.costumer_name = $('#cost_name').val();
     $('#cost_name').val("");
     order.costumer_email = $('#cost_email').val();
@@ -111,8 +147,30 @@ $('#send').click(function () {
     order.artist_email = artists.email;
     order.chain = $("#img1").attr('src');
     order.setting = $("#img2").attr('src');
+    $.ajax({
+        url: "/order",
+        method: "POST",
+        data: order
+    }).done(function (data) {
+        alert("ordered");
+    }).fail(function (jqXHR, textStatus) {
+        console.log(textStatus);
+    });
     console.log(order);
 })
 
 
+// function bubbleSort(arr) {
+//     var sorted = false;
+//     while (!sorted) {
+//         var count = 1;
+//         for (var i = 0; i < arr.length - 1; i++) {
+//             if (arr[i] > arr[i + 1]) {
+//                 count = 0;
+//                 arr.splice(i + 1, 0, arr[i]);
+//                 arr.splice(i, 1);
+//             }
 
+//         }
+//     }
+// }
