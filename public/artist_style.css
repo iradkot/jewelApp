@@ -13,7 +13,7 @@
 
 body {
     margin-top: 60px;
-    background: rgb(237, 224, 218)
+    background-color: rgba(0, 0, 255, 0.15);
 }
 
 * {
