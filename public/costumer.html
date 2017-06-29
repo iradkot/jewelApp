@@ -5,6 +5,7 @@
     <title></title>
     <link rel='stylesheet' type='text/css' href='/bootstrap/dist/css/bootstrap.css'>
     <link rel='stylesheet' type='text/css' href='/font-awesome/css/font-awesome.css'>
+    <link href="https://fonts.googleapis.com/css?family=Dosis|Montserrat" rel="stylesheet">
     <link rel='stylesheet' href='/animate.css/animate.min.css'>
     <link rel='stylesheet' type='text/css' href='costumer_style.css'>
 </head>
@@ -18,7 +19,8 @@
                 <li><a href="artist.html">Artist</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="admin.html"><span class="glyphicon glyphicon-log-in"></span> Admin</a></li>
+                <li><a href="artistEdit.html"><span class="glyphicon glyphicon-edit"></span> Edit Artist</a></li>
+                <li><a href="admin.html"><span class="glyphicon glyphicon-trash"></span> Admin</a></li>
             </ul>
         </div>
     </nav>
@@ -83,15 +85,15 @@
                 <form>
                     <h3> Place Order </h3>
                     <div class="form-group">
-                        <label>enter you name</label>
+                        <label>Enter you name</label>
                         <input type="text" class="form-control" id="cost_name" aria-describedby="helpId" placeholder="">
-                        <label>enter you email</label>
+                        <label>Enter you email</label>
                         <input type="email" class="form-control" id="cost_email" aria-describedby="helpId" placeholder="">
-                        <label>any special requests?</label>
+                        <label>Any special requests?</label>
                         <textarea rows="3" cols="80" id="cost_text">
                         </textarea>
                         <a name="" id="send" class="btn btn-primary" href="#" role="button">Send</a>
-                        <small id="helpId" class="form-text text-muted">sends your chosen jewel request</small>
+                        <small id="helpId" class="form-text text-muted">Send your chosen jewel request</small>
                     </div>
                 </form>
             </div>
