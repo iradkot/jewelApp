@@ -23,13 +23,5 @@ body {
 }
 
 $(".btn-group button").removeClass("active");
-// Colors 
-// cream - rgb(237, 224, 218)
-// red - rgba(255, 0, 0, 0.2)
-// orange - rgba(249, 115, 0, 0.25)
-// yellow - rgba(247, 239, 0, 0.15)
-// green - rgba(0, 255, 0, 0.15)
-// blue - rgba(0, 0, 255, 0.15)
-// purple - rgba(225, 0, 249, 0.15)
 // all other text font-family: 'Cutive Mono', monospace;
 // headers font-family: 'Ruthie', cursive; ***need to make big font size
