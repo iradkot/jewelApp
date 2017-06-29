@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var nodemailer = require('nodemailer');
+var sendpulse = require("sendpulse-api");
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/jewelApp', function () {
@@ -13,15 +14,6 @@ var Necklace = require('./models/necklaceModel.js');
 
 var app = express();
 
-// var smtpTransport = nodemailer.createTransport({
-//     service: "gmail",
-//     host: "smtp.gmail.com",
-//     auth: {
-//         user: "",
-//         pass: ""
-//     }
-// });
-
 app.use(express.static('public'));
 app.use(express.static('arrows'));
 app.use(express.static('node_modules'));
@@ -29,23 +21,40 @@ app.use(express.static('node_modules'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-// app.get('/order', function (req, res) {
-//     var mailOptions = {
-//         to: req.query.to,
-//         subject: req.query.subject,
-//         text: req.query.text
-//     }
-//     console.log(mailOptions);
-//     smtpTransport.sendMail(mailOptions, function (error, response) {
-//         if (error) {
-//             console.log(error);
-//             res.end("error");
-//         } else {
-//             console.log("Message sent: " + response.message);
-//             res.end("sent");
+// var API_USER_ID = "5719cf761b0d532c695fd016cc5d906d"
+// var API_SECRET = "6778dbd22f4fad54ba1dd5f65c5105d3"
+// var TOKEN_STORAGE = "./tmp/"
+// sendpulse.init(API_USER_ID, API_SECRET, TOKEN_STORAGE);
+// var answerGetter = function answerGetter(data) {
+//     console.log(data);
+// }
+// var email = {
+//     "html": "<h1>Example text</h1>",
+//     "text": "Example text",
+//     "subject": "Example subject",
+//     "from": {
+//         "name": "moshe",
+//         "email": "mosh7890@gmail.com"
+//     },
+//     "to": [
+//         {
+//             "name": "Irad",
+//             "email": "irad16@gmail.com"
 //         }
-//     });
-// });
+//     ]
+// };
+// sendpulse.smtpAddDomain(answerGetter, 'mosh7890@gmail.com');
+// sendpulse.smtpSendMail(answerGetter, email);
+
+let transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true, // secure:true for port 465, secure:false for port 587
+    auth: {
+        user: 'elevationmosh@gmail.com',
+        pass: 'Elevation358'
+    }
+});
 
 // Handles Success / Failure , and Returns data
 var handler = function (res) {
@@ -108,10 +117,40 @@ app.post('/artist/:email/option/:option', function (req, res) {
     Artist.findOneAndUpdate(req.params.postId, update, { new: true }, handler(res));
 });
 
+// Get Customer Order and Send out Emails
+app.post('/order', function (req, res) {
+    var a = req.body;
+    var mailOptions1 = {
+        from: 'elevationmosh@gmail.com',
+        to: a.artist_email,
+        subject: 'New Order',
+        text: a.customer_name + '(' + a.customer_email + ') has ordered: ' + a.chain + ' and ' + a.setting + '.'
+    };
 
-// Get Customer Order
-app.get('/order', function (req, res) {
-    var temp = req.body;
+    var mailOptions2 = {
+        from: 'elevationmosh@gmail.com',
+        to: a.customer_email,
+        subject: 'New Order',
+        text: a.customer_name + '(' + a.customer_email + '), your order has been sent!. Ty!.'
+    };
+
+    transporter.sendMail(mailOptions1, function (error, info) {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Email sent: ' + info.response);
+        }
+    });
+
+    transporter.sendMail(mailOptions2, function (error, info) {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Email sent: ' + info.response);
+        }
+    });
+
+    res.send();
 });
 
 
