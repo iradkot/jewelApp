@@ -123,21 +123,21 @@ $(".artists-list").on('click', '.artist-choose', function () {
     $("#img1").attr('src', artists.chains[currentImage1]);
     $("#img2").attr('src', artists.settings[currentImage2]);
     $('.main').show();
+    updateScores();
 });
 var order = {};
 $('#send').click(function () {
-    if (sendsLeft == 0) {
-        alert("you reached your daily limit");
-        setTimeout(function () {
-            sendsLeft = 2;
-        }, 10000);
-        return;
-    }
-
-    sendsLeft--;
-    $('#sendsLeft').empty();
-    $('#sendsLeft').append(sendsLeft);
-
+    // if (sendsLeft == 0) {
+    //     alert("you reached your daily limit");
+    //     setTimeout(function () {
+    //         sendsLeft = 2;
+    //     }, 10000);
+    //     return;
+    // }
+    
+    // sendsLeft--;
+    // $('#sendsLeft').empty();
+    // $('#sendsLeft').append(sendsLeft);
     order.customer_name = $('#cost_name').val();
     $('#cost_name').val("");
     order.customer_email = $('#cost_email').val();
@@ -147,6 +147,11 @@ $('#send').click(function () {
     order.artist_email = artists.email;
     order.chain = $("#img1").attr('src');
     order.setting = $("#img2").attr('src');
+
+    var index = findArtistByEmail(artists.email);
+    artists_arr[index].score++;
+    updateScores();
+
     $.ajax({
         url: "/order",
         method: "POST",
@@ -159,15 +164,21 @@ $('#send').click(function () {
     console.log(order);
 })
 
-$('.top_artists').append("<li>hi</li>");
 
+
+function appendTopArtists(arr) {
+    $('.top_artists').empty();
+    for (var i = 0; i < 3; i++) {
+        $('.top_artists').append("<li> name: " + arr[i].name + ", points: " + arr[i].score + "</li>");
+    }
+}
 
 function bubble(arr) {
     var len = arr.length;
 
     for (var i = 0; i < len; i++) {
         for (var j = 0; j < len - i - 1; j++) { // this was missing
-            if (arr[j] > arr[j + 1]) {
+            if (arr[j].score < arr[j + 1].score) {
                 // swap
                 var temp = arr[j];
                 arr[j] = arr[j + 1];
@@ -176,4 +187,19 @@ function bubble(arr) {
         }
     }
     return arr;
+}
+
+function updateScores() {
+    if (artists_arr.length > 2) {
+        var sorted_arr = bubble(artists_arr);
+        appendTopArtists(sorted_arr);
+    }
+}
+function findArtistByEmail(email){
+    for (var i = 0; i < artists_arr.length; i++) {
+        var element = artists_arr[i];
+        if (email===element.email){
+            return i;
+        }
+    }
 }
