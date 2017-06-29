@@ -132,7 +132,7 @@ app.post('/order', function (req, res) {
         from: 'elevationmosh@gmail.com',
         to: a.customer_email,
         subject: 'New Order',
-        text: a.customer_name + '(' + a.customer_email + '), your order has been sent!. Ty!.'
+        text: a.customer_name + '(' + a.customer_email + '), your order of ' + a.chain + ' and ' + a.setting + ' has been sent!. Ty!.'
     };
 
     transporter.sendMail(mailOptions1, function (error, info) {
@@ -151,10 +151,11 @@ app.post('/order', function (req, res) {
         }
     });
 
-    var update = { $set: { score: score + 1 } };
-    Artist.findOneAndUpdate({ email: req.params.artist_email }, update, { new: true }, handler(res));
-
-    res.send();
+    Artist.findOne({ email: a.artist_email }, function (err, data) {
+        if (err) { return console.error(err); }
+        var update = { $set: { score: data.score + 1 } };
+        Artist.findOneAndUpdate({ email: a.artist_email }, update, { new: true }, handler(res));
+    });
 });
 
 
