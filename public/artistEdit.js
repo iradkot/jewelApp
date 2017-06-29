@@ -3,7 +3,7 @@ var errorHandler = function (err, status) {
     console.error(status);
 }
 
-// Fake Put Request
+// Put Request
 var editArtist = function (email, option, input) {
     $.ajax({
         type: "POST",

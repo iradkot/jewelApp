@@ -2,7 +2,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var nodemailer = require('nodemailer');
-var sendpulse = require("sendpulse-api");
+
+//var sendpulse = require("sendpulse-api");
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/jewelApp', function () {
@@ -10,7 +11,8 @@ mongoose.connect('mongodb://localhost/jewelApp', function () {
 })
 
 var Artist = require('./models/artistModel.js');
-var Necklace = require('./models/necklaceModel.js');
+
+//var Necklace = require('./models/necklaceModel.js');
 
 var app = express();
 
@@ -21,6 +23,7 @@ app.use(express.static('node_modules'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// sendPulse email
 // var API_USER_ID = "5719cf761b0d532c695fd016cc5d906d"
 // var API_SECRET = "6778dbd22f4fad54ba1dd5f65c5105d3"
 // var TOKEN_STORAGE = "./tmp/"
@@ -46,7 +49,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // sendpulse.smtpAddDomain(answerGetter, 'mosh7890@gmail.com');
 // sendpulse.smtpSendMail(answerGetter, email);
 
-let transporter = nodemailer.createTransport({
+// nodemailer Email
+var transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
     port: 465,
     secure: true, // secure:true for port 465, secure:false for port 587
@@ -92,7 +96,7 @@ app.delete('/artist/:artistEmail', function (req, res) {
 });
 
 // 4 - Edit Artist
-// Fake Put Request
+// Put Request
 app.post('/artist/:email/option/:option', function (req, res) {
     var email = req.params.email;
     var option = req.params.option;
