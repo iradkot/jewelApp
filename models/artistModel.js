@@ -9,7 +9,8 @@ var artistSchema = new Schema({
     profile_pic: String,
     chains: [],
     settings: [],
-    theme: String
+    theme: String,
+    score: Number
 });
 
 var Artist = mongoose.model('Artist', artistSchema);
