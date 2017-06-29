@@ -1,4 +1,3 @@
-var selected=$('input[name=optradio]:checked').val();
 .bio {
     height: 100px;
     width: 1000px;
@@ -14,14 +13,14 @@ var selected=$('input[name=optradio]:checked').val();
 
 body {
     margin-top: 60px;
-    font-family: 'Cutive Mono', monospace;
     background: rgb(237, 224, 218)
 }
 
 * {
     box-sizing: border-box;
+    font-family: Montserrat;
 }
 
-$(".btn-group button").removeClass("active");
-// all other text font-family: 'Cutive Mono', monospace;
-// headers font-family: 'Ruthie', cursive; ***need to make big font size
+
+/*all other text font-family: 'Cutive Mono', monospace;
+headers font-family: 'Ruthie', cursive; ***need to make big font size*/
