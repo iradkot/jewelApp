@@ -1,5 +1,5 @@
-$(".stackbutton").click(function(){
-    $('#myNavbar').toggle('slow');
+$(".stackbutton").click(function() {
+    $('#myNavbar').toggle('slowly');
 })
 
 
@@ -23,8 +23,8 @@ $(".submit-button").on('click', function() {
 
     var selected = $('input[name=optradio]:checked').val();
 
-    var newObj = {name: name,
-
+    var newObj = {
+        name: name,
         bio: bio,
         email: email,
         profile_pic: profilePic,
