@@ -135,21 +135,21 @@ app.post('/order', function (req, res) {
         text: a.customer_name + '(' + a.customer_email + '), your order of ' + a.chain + ' and ' + a.setting + ' has been sent!. Ty!.'
     };
 
-    transporter.sendMail(mailOptions1, function (error, info) {
-        if (error) {
-            console.log(error);
-        } else {
-            console.log('Email sent: ' + info.response);
-        }
-    });
+    // transporter.sendMail(mailOptions1, function (error, info) {
+    //     if (error) {
+    //         console.log(error);
+    //     } else {
+    //         console.log('Email sent: ' + info.response);
+    //     }
+    // });
 
-    transporter.sendMail(mailOptions2, function (error, info) {
-        if (error) {
-            console.log(error);
-        } else {
-            console.log('Email sent: ' + info.response);
-        }
-    });
+    // transporter.sendMail(mailOptions2, function (error, info) {
+    //     if (error) {
+    //         console.log(error);
+    //     } else {
+    //         console.log('Email sent: ' + info.response);
+    //     }
+    // });
 
     Artist.findOne({ email: a.artist_email }, function (err, data) {
         if (err) { return console.error(err); }
