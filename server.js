@@ -6,9 +6,9 @@ var nodemailer = require('nodemailer');
 //var sendpulse = require("sendpulse-api");
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://iradkot:nirnir16@ds147497.mlab.com:47497/jewelsynth', function () {
-    console.log("DB connection established !!!");
-})
+mongoose.connect(process.env.CONNECTION_STRING||'mongodb://localhost/jewelApp', {
+  useMongoClient: true
+});
 
 var Artist = require('./models/artistModel.js');
 
